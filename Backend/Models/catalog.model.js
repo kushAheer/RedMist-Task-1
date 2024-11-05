@@ -12,15 +12,15 @@ const catalogSchema = new mongoose.Schema({
     
     discount : {
         type : Number,
-        required : true
+        required : false
     },
     discountStartDate : {
         type : Date,
-        required : true
+        required : false
     },
     discountEndDate : {
         type : Date,
-        required : true
+        required : false
     }
 } , {timestamps : true});
 

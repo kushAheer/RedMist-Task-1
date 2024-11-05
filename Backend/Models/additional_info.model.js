@@ -6,11 +6,7 @@ const additionalInfoSchema = new mongoose.Schema({
         ref : 'Product',
     },
     weight : {
-        type : String,
-        required : true
-    },
-    dimensions : {
-        type : String,
+        type : Number,
         required : true
     },
     material : {
@@ -19,7 +15,7 @@ const additionalInfoSchema = new mongoose.Schema({
     },
     otherInfo : {
         type : String,
-        required : true
+        required : false
     }
 } , {timestamps : true});
 

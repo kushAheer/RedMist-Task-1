@@ -9,7 +9,7 @@ const mediaInfoSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    productImages : [{
+    productGallary : [{
         type : String,
         
     }],
