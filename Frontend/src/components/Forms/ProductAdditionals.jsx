@@ -23,7 +23,7 @@ function ProductAdditionals() {
             otherInfo : data.otherInfo
         }
         
-        const response = await fetch(`http://localhost:5000/api/products/${product._id}/additional-info`,{
+        const response = await fetch(`/api/products/${product._id}/additional-info`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ function ProductAdditionals() {
             toast.error(responseData.message);
             return;
         }
-        const progressResponse = await fetch(`http://localhost:5000/api/products/${product._id}/progress`,{
+        const progressResponse = await fetch(`/api/products/${product._id}/progress`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

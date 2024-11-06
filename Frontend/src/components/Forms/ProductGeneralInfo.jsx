@@ -26,7 +26,7 @@ function ProductGeneralInfo() {
             warranty: data.warranty
         }
         
-        const response = await fetch(`http://localhost:5000/api/products/${product._id}/general-info`,{
+        const response = await fetch(`/api/products/${product._id}/general-info`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ function ProductGeneralInfo() {
             toast.error(responseData.message);
             return;
         }
-        const progressResponse = await fetch(`http://localhost:5000/api/products/${product._id}/progress`,{
+        const progressResponse = await fetch(`/api/products/${product._id}/progress`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

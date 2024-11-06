@@ -24,7 +24,7 @@ function ProductCreate() {
             price: data.price
         }
         
-        const response = await fetch("http://localhost:5000/api/products/create-product",{
+        const response = await fetch("/api/products/create-product",{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ function ProductCreate() {
             return;
         }
         
-        const progressResponse = await fetch(`http://localhost:5000/api/products/${responseData.data._id}/progress`,{
+        const progressResponse = await fetch(`/api/products/${responseData.data._id}/progress`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
