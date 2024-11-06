@@ -26,7 +26,7 @@ function ProductMedia() {
 
         
         
-        const response  = await fetch(`https://redmist-task-1.onrender.com/api/products/${product._id}/media-info`, {
+        const response  = await fetch(`/api/products/${product._id}/media-info`, {
             method: "POST",
             // credentials: 'include',
 
@@ -42,7 +42,7 @@ function ProductMedia() {
             return;
         }
 
-        const progressResponse = await fetch(`https://redmist-task-1.onrender.com/api/products/${product._id}/progress`,{
+        const progressResponse = await fetch(`/api/products/${product._id}/progress`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

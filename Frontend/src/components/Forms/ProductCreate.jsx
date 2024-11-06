@@ -24,7 +24,7 @@ function ProductCreate() {
             price: data.price
         }
         
-        const response = await fetch("https://redmist-task-1.onrender.com/api/products/create-product",{
+        const response = await fetch("/api/products/create-product",{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
