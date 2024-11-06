@@ -78,7 +78,7 @@
   z-index: -1;
   position: absolute;
   top: 30px;
-  background-color: red;
+  background-color: grey;
   align-items: center;
 
   transform: translate(8%, 0%);
