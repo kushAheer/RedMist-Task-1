@@ -59,29 +59,74 @@
 
 
 .stepCounterDone {
-  background-color: #4bb543;
+  background-color: #c9e7ca;
 }
 
 .stepCounterNotDone {
   background-color: #ccc;
 }
-
-.lineWrapper{
-  display: flex;
-    flex-direction: row;
-    /* top: 50px; */
-    width: 50%;
-    z-index: -1;
-    position: fixed;
-    top: 30px;
-    background-color: red;
-    align-items: center;
-    
-    transform: translate(8%, 0%);
+.stepCounterActive{
+  background-color: aqua;
+  border: 0.5px solid black;
 }
+
+.lineWrapper {
+  display: flex;
+  flex-direction: row;
+
+  width: 35%;
+  z-index: -1;
+  position: absolute;
+  top: 30px;
+  background-color: red;
+  align-items: center;
+
+  transform: translate(8%, 0%);
+}
+
 .line {
   border-bottom: 4px solid greenyellow;
-  width: 25%;
+  /* width: 25%; */
   position: relative;
-  
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
+  .lineWrapper {
+    width: 80%;
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .lineWrapper {
+    width: 70%;
+  }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .lineWrapper {
+    width: 65%;
+  }
+
+}
+
+/*Laptop devices (992px and up)*/
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .lineWrapper {
+    width: 50%;
+  }
+
+}
+
+/*large devices (1200px and up)*/
+@media screen and (min-width: 1200px) {
+  .lineWrapper {
+    width: 35%;
+  }
+
 }

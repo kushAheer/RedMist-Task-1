@@ -3,6 +3,7 @@ import AdditionalInfo from "../Models/additional_info.model.js";
 import Catalog from "../Models/catalog.model.js";
 import GeneralInfo from "../Models/general_info.model.js";
 import Product from "../Models/product.model.js";
+import Progress from "../Models/progress.model.js";
 
 //GET REQUEST
 
@@ -10,15 +11,65 @@ export const productGetProgressRequest = async (req, res) => {
 
     try {
         const {productId} = req.params;
-        console.log(productId);
-        res.status(200).json({message: "Product Progress Retrieved Successfully"});
+        
+        const product = await Product.findById(productId);
+
+        if(!product){
+            return res.status(404).json({message: "Product Not Found"});
+        }
+
+        const productProgress = await Progress.find({productId});
+
+        if(!productProgress){
+            return res.status(404).json({message: "Product Progress Not Found"});
+        }
+
+        res.status(200).json({success : true , message: "Product Progress Retrieved Successfully" , data : productProgress});
+
+
+
+        
     } catch (error) {
         res.status(500).json({message: "Internal Server Error"});
     }
 };
 
 //POST REQUEST
-export const productUpdateRequest = async (req, res) => {};
+export const productUpdateRequest = async (req, res) => {
+    try {
+
+        const {productId} = req.params;
+        const {step} = req.body;
+        if(!step){
+            return res.status(400).json({message: "Progress is Required"});
+        }
+        
+        const product = await Product.findById(productId);
+        
+        if(!product){
+            return res.status(404).json({message: "Product Not Found"});
+        }
+        
+
+        const progressStatus = await Progress.create(
+            {
+                productId , 
+                progressStatus : step
+            });
+
+        if(!progressStatus){
+            return res.status(500).json({message: "Product Progress Creation Failed"});
+        }
+
+        await progressStatus.save();
+
+        res.status(200).json({success : true , message: "Product Progress Updated Successfully" , data : progressStatus});
+        
+    } catch (error) {
+        res.status(500).json({message: " Server Error" , error : error.message});
+        
+    }
+};
 
 export const productCreateRequest = async (req, res) => {
 

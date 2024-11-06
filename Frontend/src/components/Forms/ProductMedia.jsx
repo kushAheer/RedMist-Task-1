@@ -42,6 +42,20 @@ function ProductMedia() {
             return;
         }
 
+        const progressResponse = await fetch(`http://localhost:5000/api/products/${product._id}/progress`,{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({step: 5})
+        })
+        const progressData = await progressResponse.json();
+
+        if(progressData.success != true){
+            toast.error(progressData.message);
+            return;
+        }
+
         dispatch(setProductMediaInfo(responseData.data));
         dispatch(incrementStep());
     }

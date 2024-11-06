@@ -8,6 +8,7 @@ import ProductMedia from './components/Forms/ProductMedia'
 import AppLayout from './components/Layout/AppLayout'
 import ProgressBar from './components/UI/ProgressBar'
 import { useSelector } from 'react-redux'
+import HomePage from './pages/HomePage'
 
 function App() {
 	//create
@@ -31,7 +32,7 @@ function App() {
 			case 4:
 				return <ProductMedia />
 			case 5:
-				return <h1>100% Done</h1>
+				return <HomePage />
 		}
 	}
 

@@ -35,10 +35,27 @@ function ProductGeneralInfo() {
         })
         
         const responseData = await response.json();
+        
         if(responseData.success != true){
             toast.error(responseData.message);
             return;
         }
+        const progressResponse = await fetch(`http://localhost:5000/api/products/${product._id}/progress`,{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({step: 2})
+        })
+        const progressData = await progressResponse.json();
+
+        if(progressData.success != true){
+            toast.error(progressData.message);
+            return;
+        }
+
+
+
         dispatch(setProductGeneralInfo(responseData.data));
         dispatch(incrementStep());
     }

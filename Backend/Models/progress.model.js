@@ -1,4 +1,5 @@
-const ProgressSchema = new Schema({
+import mongoose from 'mongoose';
+const ProgressSchema = new  mongoose.Schema({
     productId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
@@ -11,3 +12,5 @@ const ProgressSchema = new Schema({
 
 
 const Progress = mongoose.model('Progress', ProgressSchema);
+
+export default Progress;
